@@ -15,6 +15,8 @@ if [[ -z $OUTPUTS_DIR ]]; then
 	export OUTPUTS_DIR=/tmp/output/${NUM_TOPICS}
 fi
 
+mkdir -p $OUTPUTS_DIR/training $OUTPUTS_DIR/test
+
 export LDA_MODEL="./models/lda/trained_lda_${NUM_TOPICS}.txt"
 export _2NN_MODEL="./models/dnn/trained_2nn_${NUM_TOPICS}.txt"
 export _3NN_MODEL="./models/dnn/trained_3nn_${NUM_TOPICS}.txt"

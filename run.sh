@@ -11,6 +11,10 @@ if [[ -n $GENERATE_INPUTS ]]; then
 	python gen_input.py  # ensure that there is an lda somewhere to give the script a dictionary object
 fi
 
+if [[ -z $OUTPUTS_DIR ]]; then
+	export OUTPUTS_DIR=/tmp/output/${NUM_TOPICS}
+fi
+
 export LDA_MODEL="./models/lda/trained_lda_${PASSES}_${NUM_TOPICS}.txt"
 export _2NN_MODEL="./models/dnn/trained_2nn_${NUM_TOPICS}.txt"
 export _3NN_MODEL="./models/dnn/trained_3nn_${NUM_TOPICS}.txt"

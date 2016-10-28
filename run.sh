@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ -z $NUM_TOPICS ]]; then
+if [[ -z $WORKERS ]]; then
 	export WORKERS=7
 fi
 if [[ -z $NUM_TOPICS ]]; then

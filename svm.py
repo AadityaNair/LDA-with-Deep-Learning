@@ -1,16 +1,10 @@
 import json
-import logging
 import os
 
 import numpy as np
 from nltk.corpus import reuters as rt
 from sklearn.svm import SVC
 from utils import OUTPUTS_DIR, TESTING_SET, TRAINING_SET
-
-logging.basicConfig(
-    format='%(asctime)s : %(levelname)s : %(message)s',
-    level=logging.INFO
-)
 
 svmmodel = SVC(kernel='linear')
 
@@ -29,7 +23,7 @@ for i in TRAINING_SET:
     y.append(rt.categories(i))
 y = np.array(y)
 
-svmmodel.fit(X, y)
+svmmodel.fit(X, y.ravel())
 
 Z = []
 for i in TESTING_SET:

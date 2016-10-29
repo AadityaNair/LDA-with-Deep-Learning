@@ -1,5 +1,4 @@
 import json
-import logging
 import os
 
 import keras
@@ -7,11 +6,6 @@ import gensim
 import numpy as np
 
 from utils import INPUTS_DIR, OUTPUTS_DIR, TESTING_SET, TRAINING_SET
-
-logging.basicConfig(
-    format='%(asctime)s : %(levelname)s : %(message)s',
-    level=logging.INFO
-)
 
 ldamodel = gensim .models.ldamulticore.LdaMulticore.load(os.environ.get('LDA_MODEL', './models/dnn/trained_lda.txt'))
 dictionary = ldamodel.id2word

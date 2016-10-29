@@ -1,14 +1,8 @@
 import json
-import logging
 import os
 
 import gensim
 from utils import INPUTS_DIR, OUTPUTS_DIR, TESTING_SET, TRAINING_SET
-
-logging.basicConfig(
-    format='%(asctime)s : %(levelname)s : %(message)s',
-    level=logging.INFO
-)
 
 ldamodel = gensim.models.LdaMulticore.load(os.environ.get('LDA_MODEL', './models/lda/trained_lda.txt'))
 

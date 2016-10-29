@@ -1,10 +1,9 @@
 import json
 import os
 
-import keras
 import gensim
+import keras
 import numpy as np
-
 from utils import INPUTS_DIR, OUTPUTS_DIR, TESTING_SET, TRAINING_SET
 
 ldamodel = gensim .models.ldamulticore.LdaMulticore.load(os.environ.get('LDA_MODEL', './models/dnn/trained_lda.txt'))

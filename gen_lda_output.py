@@ -13,7 +13,6 @@ logging.basicConfig(
 ldamodel = gensim.models.LdaMulticore.load(os.environ.get('LDA_MODEL', './models/lda/trained_lda.txt'))
 
 for i in TRAINING_SET + TESTING_SET:
-    logging.info(i)
     with open(os.path.join(INPUTS_DIR, i)) as f:
         bow = json.load(f)
     with open(os.path.join(OUTPUTS_DIR, i), 'w+') as f:

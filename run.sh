@@ -21,6 +21,18 @@ export LDA_MODEL="./models/lda/trained_lda_${NUM_TOPICS}.txt"
 export _2NN_MODEL="./models/dnn/trained_2nn_${NUM_TOPICS}.txt"
 export _3NN_MODEL="./models/dnn/trained_3nn_${NUM_TOPICS}.txt"
 
+if [[ -n $EVALUATE_ONLY ]];then
+	python gen_lda_output.py
+	python svm.py > lda_accuracy_${NUM_TOPICS}
+	export DNN_MODEL=$_2NN_MODEL
+	python gen_dnn_output.py
+	python svm.py > 2nn_accuracy_${NUM_TOPICS}
+	export DNN_MODEL=$_3NN_MODEL
+	python gen_dnn_output.py
+	python svm.py > 3nn_accuracy_${NUM_TOPICS}
+	exit
+fi
+
 python lda.py && python gen_lda_output.py
 
 python svm.py > lda_accuracy_${NUM_TOPICS}

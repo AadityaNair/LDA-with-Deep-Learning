@@ -12,7 +12,7 @@ logging.basicConfig(
     level=logging.INFO
 )
 
-svmmodel = SVC()
+svmmodel = SVC(kernel='linear')
 
 # remove things which have multiple classes
 TRAINING_SET = list(filter(lambda x: len(rt.categories(x)) == 1, TRAINING_SET))
